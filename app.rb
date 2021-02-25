@@ -4,8 +4,6 @@ class App
   PARAMS_KEY = 'format'.freeze
 
   def call(env)
-    # perform_request
-    # [status, headers, body]
     request = Rack::Request.new(env)
     params = request.params[PARAMS_KEY]
     if url_ok?(env['REQUEST_PATH']) && request.get?
@@ -16,10 +14,6 @@ class App
   end
 
   private
-
-  # def perform_request
-  #   sleep rand(2..3)
-  # end
 
   def url_ok?(url)
     url == CORRECT_URL

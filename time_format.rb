@@ -22,16 +22,6 @@ class TimeFormat
     @invalid_format.empty?
   end
 
-  def check_params
-    @params.each do |format|
-      if FORMATS.key?(format)
-        @time_string << FORMATS[format.to_s]
-      else
-        @invalid_format << format
-      end
-    end
-  end
-
   def time_text
     Time.now.strftime(@time_string.join('-'))
   end
